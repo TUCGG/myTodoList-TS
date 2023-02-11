@@ -11,6 +11,7 @@ const TodoListWrapper = () => {
     if (localStorage.getItem("todoList")) {
       const storageTodoList = JSON.parse(localStorage.getItem("todoList")!);
       setTodoList(storageTodoList);
+      console.log(localStorage.getItem("todoList")!);
     }
   }, [setTodoList]);
 
