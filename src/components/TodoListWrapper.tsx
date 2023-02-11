@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import TodoListItem from "./TodoListItem";
 import useTodoList from "../hooks/useTodoList";
 import TodoListInput from "./TodoListInput";
+import { StyleTodoListWrapper } from "../styled/styledTodoList";
 
 const TodoListWrapper = () => {
   const { todoList, setTodoList, addTodoList, deleteTodoList, checkTodoList } =
@@ -21,7 +22,7 @@ const TodoListWrapper = () => {
   }, [todoList]);
 
   return (
-    <div>
+    <StyleTodoListWrapper>
       <TodoListInput addTodoList={addTodoList} />
       {todoList.map((todo, index) => (
         <TodoListItem
@@ -34,7 +35,7 @@ const TodoListWrapper = () => {
           checkTodoList={checkTodoList}
         />
       ))}
-    </div>
+    </StyleTodoListWrapper>
   );
 };
 

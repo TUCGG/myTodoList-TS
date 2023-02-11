@@ -1,29 +1,15 @@
 import { TodolistType } from "../types/todoList";
 import cn from "classnames";
-import styled from "styled-components";
+import {
+  StyleCheckBox,
+  StyleDeleteBox,
+  StyleTodoListItem,
+} from "../styled/styledTodoList";
 
 interface TodolistProps extends TodolistType {
   deleteTodoList: (todolistID: string) => void;
   checkTodoList: (todolistID: string) => void;
 }
-
-const StyleTodoListItem = styled.div`
-  display: flex;
-  align-items: center;
-  & h2 {
-    min-width: 50%;
-  }
-`;
-
-const StyleCheckBox = styled.button`
-  width: 50px;
-  height: 50px;
-`;
-
-const StyleDeleteBox = styled.button`
-  width: 50px;
-  height: 50px;
-`;
 
 const TodoListItem = ({
   id,
@@ -34,11 +20,10 @@ const TodoListItem = ({
   checkTodoList,
 }: TodolistProps) => {
   return (
-    <StyleTodoListItem>
+    <StyleTodoListItem className={cn("checkbox", { isCheck })}>
       <h1>{index}</h1>
-      <h2>{todo}</h2>
+      <p>{todo}</p>
       <StyleCheckBox
-        className={cn("checkbox", { isCheck })}
         onClick={() => {
           checkTodoList(id);
         }}

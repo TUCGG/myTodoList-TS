@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { TodolistType } from "../types/todoList";
 import uuid from "react-uuid";
+import { StyleInputbox } from "../styled/styledTodoList";
 
 interface TodolistInputProps {
   addTodoList: (todo: TodolistType) => void;
@@ -31,12 +32,12 @@ const TodoListInput = ({ addTodoList }: TodolistInputProps) => {
   );
 
   return (
-    <div>
+    <StyleInputbox>
       <form onSubmit={handleSubmitForm}>
         <input value={inputText} onChange={onChangeInput}></input>
-        <button></button>
+        <button>추가</button>
       </form>
-    </div>
+    </StyleInputbox>
   );
 };
 
