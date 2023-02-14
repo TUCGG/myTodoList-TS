@@ -1,11 +1,16 @@
 import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import TestPage from "./components/test";
 import TodoListWrapper from "./components/TodoListWrapper";
 
 function App() {
   return (
-    <div className="App">
-      <TodoListWrapper />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<TodoListWrapper />} />
+        <Route path="test" element={<TestPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

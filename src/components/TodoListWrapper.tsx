@@ -3,6 +3,7 @@ import TodoListItem from "./TodoListItem";
 import useTodoList from "../hooks/useTodoList";
 import TodoListInput from "./TodoListInput";
 import { StyleTodoListWrapper } from "../styled/styledTodoList";
+import Header from "./Header";
 
 const TodoListWrapper = () => {
   const { todoList, setTodoList, addTodoList, deleteTodoList, checkTodoList } =
@@ -12,17 +13,16 @@ const TodoListWrapper = () => {
     if (localStorage.getItem("todoList")) {
       const storageTodoList = JSON.parse(localStorage.getItem("todoList")!);
       setTodoList(storageTodoList);
-      console.log(localStorage.getItem("todoList")!);
     }
   }, [setTodoList]);
 
   useEffect(() => {
     localStorage.setItem("todoList", JSON.stringify(todoList));
-    console.log(localStorage.getItem("todoList")!);
   }, [todoList]);
 
   return (
     <StyleTodoListWrapper>
+      <Header />
       <TodoListInput addTodoList={addTodoList} />
       {todoList.map((todo, index) => (
         <TodoListItem
